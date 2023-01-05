@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <b-jumbotron>
-      <template #header>Malu-Pet na Foods</template>
+      <template #header>SIA PROJECT</template>
 
       <template #lead>
         Your one stop shop for all of your pet's foods! We offer products for
