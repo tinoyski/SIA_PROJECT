@@ -1,0 +1,6 @@
+1. https://github.com/coreybutler/nvm-windows/releases download and install nvm from here
+2. install node version 14.21.2 "nvm install v14.21.2" in cmd
+3. (optional) type "node -v" to verify the version installed
+4. open project from SIA_PROJECT folder
+5. open terminal from vscode "npm i" to install project
+6. "npm run serve" to run development server

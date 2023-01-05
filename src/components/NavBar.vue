@@ -1,0 +1,378 @@
+<template>
+  <div id="navbar" class="sticky-top">
+    <b-navbar toggleable="md" type="dark" variant="dark">
+      <b-navbar-brand to="/">
+        <b-img src="https://i.imgur.com/JIxnYfL.png" width="60%"></b-img>
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav id="navLinks">
+          <b-nav-item to="/">Home</b-nav-item>
+          <b-nav-item to="/about">About</b-nav-item>
+          <b-nav-item to="/dog">Dogs</b-nav-item>
+          <b-nav-item to="/cat">Cats</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto pr-2">
+          <!-- user icon -->
+          <b-nav-item>
+            <b-nav-item-dropdown
+              size="lg"
+              toggle-class="nav-link"
+              right
+              no-caret
+            >
+              <template #button-content>
+                <b-avatar
+                  v-if="user.photoURL"
+                  class="icon-size"
+                  :src="user.photoURL"
+                  variant="dark"
+                ></b-avatar>
+                <b-avatar
+                  v-else
+                  class="icon-size"
+                  icon="person"
+                  variant="dark"
+                ></b-avatar>
+              </template>
+              <div v-if="user.displayName">
+                <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
+              </div>
+              <div v-else>
+                <b-dropdown-item v-b-modal="'login'">Login</b-dropdown-item>
+                <b-dropdown-item v-b-modal="'register'"
+                  >Register</b-dropdown-item
+                >
+              </div>
+            </b-nav-item-dropdown>
+          </b-nav-item>
+          <!-- cart icon -->
+          <b-nav-item class="no-padding">
+            <b-nav-item-dropdown
+              @show="calcPrice()"
+              ref="cart-dd"
+              size="lg"
+              toggle-class="nav-link"
+              right
+              no-caret
+            >
+              <template #button-content>
+                <b-avatar
+                  class="icon-size"
+                  :badge="cart.length.toString()"
+                  icon="cart3"
+                  badge-top
+                  badge-variant="light"
+                  variant="dark"
+                >
+                </b-avatar>
+              </template>
+              <b-dropdown-form class="no-padding" style="width: 640px">
+                <b-card class="overflow-auto">
+                  <div v-if="cart.length">
+                    <b-list-group>
+                      <b-list-group-item
+                        v-for="(item, index) in cart"
+                        :key="item.id"
+                        class="flex-column align-items-center"
+                      >
+                        <div v-if="item.quantity">
+                          <b-row>
+                            <b-col class="col-3" style="text-align: center">
+                              <p><strong>Product</strong></p>
+                            </b-col>
+                            <b-col class="col-3"></b-col>
+                            <b-col style="text-align: center">
+                              <p><strong>Quantity:</strong></p>
+                            </b-col>
+                            <b-col style="text-align: center">
+                              <p><strong>Total:</strong></p>
+                            </b-col>
+                          </b-row>
+                          <b-row>
+                            <b-col class="col-3 py-2">
+                              <!-- Learn to put persistence soon. -->
+                              <!-- <b-link :to="`/details/${item.id}`">
+                              </b-link> -->
+                              <b-img
+                                :src="item.imageUrl"
+                                height="100"
+                                width="100"
+                              ></b-img>
+                            </b-col>
+                            <b-col cols="3">
+                              <p class="h4 mt-3" style="text-align: left">
+                                {{ item.name }}
+                              </p>
+                            </b-col>
+                            <b-col>
+                              <b-row>
+                                <b-col style="text-align: center">
+                                  <b-button-toolbar>
+                                    <b-button
+                                      @click="minusOne(index)"
+                                      size="sm"
+                                      variant="light"
+                                    >
+                                      <b-icon icon="dash"></b-icon>
+                                    </b-button>
+                                    <p class="mx-auto my-auto">
+                                      {{ item.quantity }}
+                                    </p>
+                                    <b-button
+                                      @click="plusOne(index)"
+                                      size="sm"
+                                      variant="light"
+                                    >
+                                      <b-icon icon="plus"></b-icon>
+                                    </b-button>
+                                  </b-button-toolbar>
+                                  <b-link
+                                    @click="remove(index)"
+                                    style="color: black"
+                                    >Remove</b-link
+                                  >
+                                </b-col>
+                                <b-col>
+                                  <p>₱{{ item.price * item.quantity }}.00</p>
+                                </b-col>
+                              </b-row>
+                            </b-col>
+                          </b-row>
+                        </div>
+                      </b-list-group-item>
+                      <b-list-group-item>
+                        <b-row align-h="between">
+                          <b-col cols="3">
+                            <p class="h4 mt-4">Total</p>
+                          </b-col>
+                          <b-col cols="5" style="text-align: center">
+                            <div>
+                              <p><strong>Total Price:</strong></p>
+                              <p>₱{{ totalPrice }}.00</p>
+                            </div>
+                          </b-col>
+                        </b-row>
+                      </b-list-group-item>
+                      <b-row>
+                        <b-col align-self="center">
+                          <b-button
+                            class="col-11 my-3"
+                            size="md"
+                            to="/cart"
+                            @click.stop="closeDD()"
+                            variant="dark"
+                            >View Cart</b-button
+                          >
+                        </b-col>
+                        <b-col align-self="center">
+                          <b-button
+                            class="col-11 my-3"
+                            size="md"
+                            @click="
+                              checkout();
+                              closeDD();
+                            "
+                            variant="dark"
+                            >Checkout</b-button
+                          >
+                        </b-col>
+                      </b-row>
+                    </b-list-group>
+                  </div>
+                  <div v-else class="overflow-hidden" style="width: 450px">
+                    <h2>You don't have any items!</h2>
+                    <b-button
+                      class="mt-3"
+                      variant="dark"
+                      to="/dog"
+                      @click="closeDD()"
+                      >Add Products!</b-button
+                    >
+                  </div>
+                </b-card>
+              </b-dropdown-form>
+            </b-nav-item-dropdown>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+
+    <!-- Modals -->
+    <b-modal id="login" ok-title="Login">
+      <template #modal-title>
+        <p><strong>Login</strong></p>
+      </template>
+      <template #modal-footer>
+        <b-button
+          @click="
+            login();
+            $bvModal.hide('login');
+          "
+          type="submit"
+          variant="dark"
+          >Login</b-button
+        >
+      </template>
+      <b-container fluid>
+        <b-form>
+          <b-form-group
+            id="username"
+            label="Username:"
+            label-for="usernameInput"
+          >
+            <b-form-input
+              id="usernameInput"
+              type="text"
+              placeholder="Enter Username"
+              required
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="password"
+            label="Password:"
+            label-for="passwordInput"
+          >
+            <b-form-input
+              id="passwordInput"
+              placeholder="Password"
+              required
+            ></b-form-input>
+          </b-form-group>
+        </b-form>
+      </b-container>
+    </b-modal>
+
+    <b-modal id="register" ok-title="Register">
+      <template #modal-title>
+        <p><strong>Register</strong></p>
+      </template>
+      <template #modal-footer>
+        <b-button
+          @click="
+            login();
+            $bvModal.hide('register');
+          "
+          type="submit"
+          variant="dark"
+          >Register</b-button
+        >
+      </template>
+      <b-form>
+        <b-form-group id="username" label="Username:" label-for="usernameInput">
+          <b-form-input
+            id="usernameInput"
+            type="text"
+            placeholder="Enter Username"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group id="email" label="Email:" label-for="emailInput">
+          <b-form-input
+            id="emailInput"
+            type="email"
+            placeholder="Enter Email"
+            description="We won't share your email to anyone else."
+            required
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="password" label="Password:" label-for="passwordInput">
+          <b-form-input
+            id="passwordInput"
+            type="password"
+            placeholder="Enter Password"
+            required
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          id="confirm-password"
+          label="Confirm Password:"
+          label-for="confirm-passwordInput"
+        >
+          <b-form-input
+            id="confirm-passwordInput"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          ></b-form-input>
+        </b-form-group>
+      </b-form>
+    </b-modal>
+  </div>
+</template>
+
+<script>
+import { mapGetters, mapActions } from "vuex";
+export default {
+  name: "Navbar",
+  data() {
+    return {
+      totalPrice: 0,
+    };
+  },
+  computed: {
+    ...mapGetters("account", ["user"]),
+    ...mapGetters("product", ["cart"]),
+  },
+  methods: {
+    ...mapActions("account", ["login", "logout"]),
+    ...mapActions("product", ["removeCart"]),
+    calcPrice() {
+      this.totalPrice = 0;
+      this.cart.forEach((element) => {
+        this.totalPrice += element.price * element.quantity;
+      });
+    },
+    closeDD() {
+      this.$refs["cart-dd"].hide();
+    },
+    checkout() {
+      const vm = this;
+      setTimeout(() => {
+        vm.removeCart();
+        alert("Purchase successful!");
+        vm.$router.push("/");
+      }, 2000);
+    },
+    minusOne(index) {
+      this.cart[index].quantity--;
+      this.$set(this.cart, index, this.cart[index]);
+      if (this.cart[index].quantity == 0) {
+        this.cart.splice(index, 1);
+      }
+      this.calcPrice();
+    },
+    plusOne(index) {
+      this.cart[index].quantity++;
+      this.$set(this.cart, index, this.cart[index]);
+      this.calcPrice();
+    },
+    remove(index) {
+      this.cart.splice(index, 1);
+      this.calcPrice();
+    },
+  },
+};
+</script>
+
+<style scoped>
+.nav-link {
+  padding: 0.1rem;
+}
+.icon-size {
+  width: 2.7rem;
+}
+
+.no-padding {
+  padding: 0rem !important;
+}
+
+#navLinks {
+  font-size: 18px;
+}
+</style>
