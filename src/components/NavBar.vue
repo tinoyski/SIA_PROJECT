@@ -2,7 +2,7 @@
   <div id="navbar" class="sticky-top">
     <b-navbar toggleable="md" type="dark" variant="dark">
       <b-navbar-brand to="/">
-        <b-img src="https://i.imgur.com/JIxnYfL.png" width="60%"></b-img>
+        <b-img src="@/assets/img/ccc1.jpg" width="60%"></b-img>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -11,8 +11,8 @@
         <b-navbar-nav id="navLinks">
           <b-nav-item to="/">Home</b-nav-item>
           <b-nav-item to="/about">About</b-nav-item>
-          <b-nav-item to="/dog">Dogs</b-nav-item>
-          <b-nav-item to="/cat">Cats</b-nav-item>
+          <b-nav-item to="/shop">Products</b-nav-item>
+          
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto pr-2">

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <b-jumbotron>
-      <template #header>SIA PROJECT</template>
+      <template #header>CITY COLLEGE OF CALAMBA</template>
 
       <template #lead>
         Your one stop shop for all of your pet's foods! We offer products for
@@ -11,15 +11,12 @@
       <hr class="my-4" />
 
       <p>
-        Learn more about us and how we operate or start shopping now by clicking
-        the button below!
+        Learn more about us visit <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/">CITY COLLEGE OF CALAMBA</a>
+        
       </p>
 
-      <b-button variant="primary" to="/about" class="mr-2">Learn more</b-button>
-      <b-dropdown text="Shop Now!" class="m-md-2" variant="success">
-        <b-dropdown-item to="/dog">Dogs</b-dropdown-item>
-        <b-dropdown-item to="/cat">Cats</b-dropdown-item>
-      </b-dropdown>
+      <b-button variant="success" to="/shop">Shop Now </b-button>
+
     </b-jumbotron>
     <div class="container">
       <b-carousel
@@ -35,7 +32,7 @@
           <template #img>
             <img
               :height="imgHeight"
-              src="https://i.imgur.com/JIxnYfL.png"
+              src="@/assets/img/ccc1.jpg"
               alt="image slot"
             />
           </template>
@@ -45,7 +42,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/dog-1.jpg"
+              src="@/assets/img/lanyard.jpg"
               alt="image slot"
             />
           </template>
@@ -55,7 +52,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/cat-1.jpg"
+              src="@/assets/img/shirt.jpg"
               alt="image slot"
             />
           </template>
@@ -65,7 +62,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/cat-2.jpg"
+              src="@/assets/img/jacket.jpg"
               alt="image slot"
             />
           </template>

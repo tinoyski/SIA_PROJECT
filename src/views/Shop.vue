@@ -1,10 +1,10 @@
 <template>
-  <div id="cat">
+  <div id="dog">
     <b-jumbotron>
-      <template #header>Malu-Pet na Cat Foods</template>
+      <template #header>WELCOME TO CCC ONLINE MERCHANDISE!</template>
 
       <template #lead>
-        Here we have a variety of cat foods for the common types of cats.
+        Here we have a variety of dog foods for the common types of dogs.
       </template>
     </b-jumbotron>
     <div style="padding: 25px">
@@ -28,10 +28,10 @@ export default {
   },
   components: { ProductCard },
   methods: {
-    ...mapActions("product", ["getCatProducts", "addCart", "removeCart"]),
+    ...mapActions("product", ["getProducts", "addCart", "removeCart"]),
   },
   mounted() {
-    this.getCatProducts();
+    this.getProducts();
   },
 };
 </script>

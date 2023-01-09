@@ -6,7 +6,7 @@
         <span style="display: inline-block; transform: rotate(180deg)"
           >&#169;</span
         >
-        mahomuri 2021
+        CITY COLLEGE OF CALAMBA
       </footer>
     </div>
   </div>

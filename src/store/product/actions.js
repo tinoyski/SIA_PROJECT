@@ -1,27 +1,13 @@
 import axios from "axios";
 
-export function getDogProducts({ commit }) {
+export function getProducts({ commit }) {
   let url =
-    "https://my-json-server.typicode.com/mahomuri/malu-pet-na-foods/products";
+    "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
   // const url = "http://localhost:3000/products";
   axios
     .get(url)
     .then((response) => {
-      commit("setProducts", response.data.dog);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
-export function getCatProducts({ commit }) {
-  let url =
-    "https://my-json-server.typicode.com/mahomuri/malu-pet-na-foods/products";
-  // const url = "http://localhost:3000/products";
-  axios
-    .get(url)
-    .then((response) => {
-      commit("setProducts", response.data.cat);
+      commit("setProducts", response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -32,14 +18,12 @@ export function productDetails({ commit }, id) {
   const productID = parseInt(id);
 
   let url =
-    "https://my-json-server.typicode.com/mahomuri/malu-pet-na-foods/products";
+    "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
   // const url = "http://localhost:3000/products";
   axios
     .get(url)
     .then((response) => {
-      const product =
-        response.data.dog.find(({ id }) => id === productID) ||
-        response.data.cat.find(({ id }) => id === productID);
+      const product = response.data.find(({ id }) => id === productID)
       commit("setProduct", product);
     })
     .catch(function (error) {
