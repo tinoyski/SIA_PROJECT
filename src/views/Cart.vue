@@ -94,7 +94,6 @@
       >
     </div>
     <div class="mt-5">
-      <h3>Malu-Pet na Foods</h3>
       <hr class="my-4" />
     </div>
     <div class="container pl-0">
@@ -111,7 +110,7 @@
           <template #img>
             <img
               :height="imgHeight"
-              src="https://i.imgur.com/JIxnYfL.png"
+              src="@/assets/img/ccc1.jpg"
               alt="image slot"
             />
           </template>
@@ -121,7 +120,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/dog-1.jpg"
+              src="@/assets/img/lanyard.jpg"
               alt="image slot"
             />
           </template>
@@ -131,7 +130,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/cat-1.jpg"
+              src="@/assets/img/shirt.jpg"
               alt="image slot"
             />
           </template>
@@ -141,7 +140,7 @@
             <img
               class="d-block w-100"
               :height="imgHeight"
-              src="@/assets/img/cat-2.jpg"
+              src="@/assets/img/jacket.jpg"
               alt="image slot"
             />
           </template>

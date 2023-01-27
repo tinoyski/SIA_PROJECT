@@ -2,10 +2,6 @@
   <div id="dog">
     <b-jumbotron>
       <template #header>WELCOME TO CCC ONLINE MERCHANDISE!</template>
-
-      <template #lead>
-        Here we have a variety of dog foods for the common types of dogs.
-      </template>
     </b-jumbotron>
     <div style="padding: 25px">
       <div class="container">

@@ -1,11 +1,9 @@
 <template>
   <div class="home">
     <b-jumbotron>
-      <template #header>CITY COLLEGE OF CALAMBA</template>
-
+      <template #header>CCC ONLINE MERCHANDISE</template>
       <template #lead>
-        Your one stop shop for all of your pet's foods! We offer products for
-        dogs and cats and many more soon!
+        Shop different varieties of products offered by City College of Calamba Departments.
       </template>
 
       <hr class="my-4" />

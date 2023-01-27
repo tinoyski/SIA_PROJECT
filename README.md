@@ -1,4 +1,4 @@
-# final-project-vue-rewrite
+# CITY COLLEGE OF CALAMBA
 
 ## Project setup
 

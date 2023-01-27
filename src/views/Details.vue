@@ -2,7 +2,7 @@
   <div id="details" class="container-fluid">
     <b-row>
       <b-col class="col-2">
-        <b-button variant="dark" :to="'/' + product.category">
+        <b-button variant="dark" to="/shop">
           <b-icon icon="arrow-left" aria-hidden="true"></b-icon> Back
         </b-button>
       </b-col>

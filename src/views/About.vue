@@ -13,67 +13,102 @@
       <h2>Who we are</h2>
       <hr class="my-4" />
       <br />
-      <img src="@/assets/img/meeting.jpg" class="img-fluid" alt="meeting" />
-      <em>
-        <span
-          >Photo by
-          <a
-            href="https://unsplash.com/@brookecagle?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
-            >Brooke Cagle</a
-          >
-          on
-          <a
-            href="https://unsplash.com/s/photos/teamwork?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
-            >Unsplash</a
-          ></span
-        >
-      </em>
+      <img src="@/assets/img/ccc4.jpg" class="img-fluid" alt="@/assets/img/ccc3.png" />
+       <br />
+      <p class="sm" style="text-align: left">
+          Taken from
+          <a href="https://www.facebook.com/citycollegeofcalamba">CITY COLLEGE OF CALAMBA</a>
+        </p>
       <br />
       <br />
       <p style="font-size: +20px">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolorum
-        magni est asperiores excepturi maxime voluptate dignissimos vitae,
-        suscipit, temporibus maiores beatae accusamus adipisci consectetur
-        provident nostrum voluptates itaque corporis.
+        This website is developed by a group of IT Programmers from City College of Calamba. 
+        To serve as their partial requirement in System Integration and Architecture. 
+        A project inspired by Professor Leonardo Antivo.
       </p>
       <br />
       <h1>Our Products</h1>
       <hr class="my-4" />
       <p style="font-size: +20px">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias eius
-        cumque eos ea iure corporis voluptates perferendis totam. Vel excepturi
-        nobis non quam aliquam ipsa, optio molestias itaque laborum repudiandae!
+        Our products are from the collaborated departments of City College of Calamba such as Departmental T-shirts, Facemask, Totebag, Accesories and more.
+       For more info, visit <a target="target_name" rel="relation_name" href="https://m.facebook.com/CCCOnlineBazaar"> CCC Student's Online Bazaar</a>
       </p>
       <br />
       <br />
       <div>
-        <h3>Pedigree</h3>
-        <hr class="my-4" />
-        <b-embed
-          type="iframe"
-          aspect="16by9"
-          src="https://www.youtube.com/embed/zCPY_LsXDDo"
-          allowfullscreen
-        ></b-embed>
+        <h3>CITY COLLEGE OF CALAMBA DEPARTMENTS</h3>
+        <br />
+        <div class="container">
+      <b-carousel
+        id="carousel-1"
+        :interval="6000"
+        controls
+        fade
+        indicators
+        style="text-shadow: 1px 1px 2px #333"
+      >
+        <!-- Slides with image only -->
+        <b-carousel-slide>
+          <template #img>
+            <img
+              :height="imgHeight"
+              src="@/assets/img/dci.png"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template #img>
+            <img
+              class="d-block w-100"
+              :height="imgHeight"
+              src="@/assets/img/daste.png"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template #img>
+            <img
+              class="d-block w-100"
+              :height="imgHeight"
+              src="@/assets/img/dba.png"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template #img>
+            <img
+              class="d-block w-100"
+              :height="imgHeight"
+              src="@/assets/img/dte.png"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+      </b-carousel>
+    </div>
+    <br />
         <p class="sm" style="text-align: left">
           Taken from
-          <a href="https://www.youtube.com/watch?v=zCPY_LsXDDo">YouTube</a>
-        </p>
-      </div>
-      <div>
-        <h3>Cuties Catz</h3>
-        <hr class="my-4" />
-        <b-embed
-          type="iframe"
-          aspect="16by9"
-          src="https://www.youtube.com/embed/fVIoxuC_-KQ"
-          allowfullscreen
-        ></b-embed>
-        <p class="sm" style="text-align: left">
-          Taken from
-          <a href="https://www.youtube.com/watch?v=fVIoxuC_-KQ">YouTube</a>
+          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/dci">DCI, </a>
+          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/das">DASTE, </a>
+          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/dba">DBA, </a>
+          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/daste">DTE</a>
         </p>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      imgHeight: 750,
+      imgWidth: 500,
+    };
+  },
+};
+</script>
