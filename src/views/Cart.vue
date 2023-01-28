@@ -89,7 +89,7 @@
     </div> <!-- check if cart is empty -->
     <div v-else>
       <h2>You don't have any items!</h2>
-      <b-button class="mt-3 col-4" variant="dark" to="/"
+      <b-button class="mt-3 col-4" variant="dark" to="/shop"
         >Add Products!</b-button
       >
     </div>
