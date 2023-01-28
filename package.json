@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "json-server https://raw.githubusercontent.com/MahoMuri/malu-pet-na-foods/master/db.json",
+    "server": "json-server https://github.com/tinoyski/ccc-db/blob/master/db.json",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"

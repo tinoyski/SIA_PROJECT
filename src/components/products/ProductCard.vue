@@ -1,5 +1,5 @@
 <template>
-  <div id="product-card">
+  <div id="product-card">  <!--{{ Product details }}--> 
     <b-card
       :title="product.name"
       :img-src="product.imageUrl"

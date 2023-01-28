@@ -3,7 +3,7 @@ import axios from "axios";
 export function getProducts({ commit }) {
   let url =
     "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
-  // const url = "http://localhost:3000/products";
+  // get products through API;
   axios
     .get(url)
     .then((response) => {
@@ -19,7 +19,7 @@ export function productDetails({ commit }, id) {
 
   let url =
     "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
-  // const url = "http://localhost:3000/products";
+  // get products through API;
   axios
     .get(url)
     .then((response) => {

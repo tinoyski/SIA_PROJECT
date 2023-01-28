@@ -47,7 +47,7 @@
         indicators
         style="text-shadow: 1px 1px 2px #333"
       >
-        <!-- Slides with image only -->
+        <!-- slideshow with image only -->
         <b-carousel-slide>
           <template #img>
             <img
@@ -90,12 +90,12 @@
       </b-carousel>
     </div>
     <br />
-        <p class="sm" style="text-align: left">
+        <p class="sm" style="text-align: left">  <!-- references -->
           Taken from
-          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/dci">DCI, </a>
-          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/das">DASTE, </a>
-          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/dba">DBA, </a>
-          <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/academics/daste">DTE</a>
+          <a target="ccc_dci" rel="dci" href="https://ccc.edu.ph/academics/dci">DCI, </a>
+          <a target="ccc_das" rel="das" href="https://ccc.edu.ph/academics/das">DASTE, </a>
+          <a target="ccc_dba" rel="dba" href="https://ccc.edu.ph/academics/dba">DBA, </a>
+          <a target="ccc_dte" rel="dte" href="https://ccc.edu.ph/academics/daste">DTE</a>
         </p>
       </div>
     </section>

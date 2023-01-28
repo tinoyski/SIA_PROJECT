@@ -38,7 +38,7 @@
               <b-col>
                 <b-row>
                   <b-col>
-                    <b-button-toolbar>
+                    <b-button-toolbar> <!-- modify item quantity -->
                       <b-button
                         @click="minusOne(index)"
                         size="sm"
@@ -86,7 +86,7 @@
           >Checkout</b-button
         >
       </b-list-group>
-    </div>
+    </div> <!-- check if cart is empty -->
     <div v-else>
       <h2>You don't have any items!</h2>
       <b-button class="mt-3 col-4" variant="dark" to="/"
@@ -105,7 +105,7 @@
         indicators
         style="text-shadow: 1px 1px 2px #333"
       >
-        <!-- Slides with image only -->
+        <!-- slideshow with image only -->
         <b-carousel-slide>
           <template #img>
             <img

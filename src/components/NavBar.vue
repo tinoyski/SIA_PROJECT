@@ -24,7 +24,7 @@
               right
               no-caret
             >
-              <template #button-content>
+              <template #button-content>  <!--{{ If-Else to check user photo }}--> 
                 <b-avatar
                   v-if="user.photoURL"
                   class="icon-size"
@@ -37,7 +37,7 @@
                   icon="person"
                   variant="dark"
                 ></b-avatar>
-              </template>
+              </template>  <!--{{ Login or Register }}--> 
               <div v-if="user.displayName">
                 <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
               </div>
@@ -72,14 +72,14 @@
               </template>
               <b-dropdown-form class="no-padding" style="width: 640px">
                 <b-card class="overflow-auto">
-                  <div v-if="cart.length">
+                  <div v-if="cart.length">  <!--{{ check items inside the cart }}--> 
                     <b-list-group>
                       <b-list-group-item
                         v-for="(item, index) in cart"
                         :key="item.id"
                         class="flex-column align-items-center"
                       >
-                        <div v-if="item.quantity">
+                        <div v-if="item.quantity">  <!--{{ cart items quantity }}--> 
                           <b-row>
                             <b-col class="col-3" style="text-align: center">
                               <p><strong>Product</strong></p>
@@ -93,8 +93,7 @@
                             </b-col>
                           </b-row>
                           <b-row>
-                            <b-col class="col-3 py-2">
-                              <!-- Learn to put persistence soon. -->
+                            <b-col class="col-3 py-2">  
                               <!-- <b-link :to="`/details/${item.id}`">
                               </b-link> -->
                               <b-img
@@ -111,7 +110,7 @@
                             <b-col>
                               <b-row>
                                 <b-col style="text-align: center">
-                                  <b-button-toolbar>
+                                  <b-button-toolbar>  <!--{{ modify quantity inside the cart }}--> 
                                     <b-button
                                       @click="minusOne(index)"
                                       size="sm"
@@ -188,8 +187,8 @@
                     <b-button
                       class="mt-3"
                       variant="dark"
-                      to="/dog"
-                      @click="closeDD()"
+                      to="/shop"
+                      @click="closeDD()" 
                       >Add Products!</b-button
                     >
                   </div>
@@ -201,7 +200,7 @@
       </b-collapse>
     </b-navbar>
 
-    <!-- Modals -->
+    <!-- User -->
     <b-modal id="login" ok-title="Login">
       <template #modal-title>
         <p><strong>Login</strong></p>

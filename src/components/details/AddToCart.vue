@@ -15,16 +15,16 @@
           />
         </b-form-group>
       </b-col>
-      <b-col>
+      <b-col>              <!--{{ If-Else to check if the cart has an item in it }}--> 
         <b-button
-          v-if="!isInCardProp"
+          v-if="!isInCardProp"   
           @click.stop="addCart({ product, quantity })"
           variant="dark"
           class="ctr ml-3 col-11"
         >
           Add to Cart</b-button
         >
-        <div v-else class="ctr ml-3">
+        <div v-else class="ctr ml-3">    
           <b-row no-gutters>
             <b-col>
               <b-button class="col-11" variant="dark" to="/cart"

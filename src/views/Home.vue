@@ -9,7 +9,7 @@
       <hr class="my-4" />
 
       <p>
-        Learn more about us visit <a target="target_name" rel="relation_name" href="https://ccc.edu.ph/">CITY COLLEGE OF CALAMBA</a>
+        Learn more about us visit <a target="ccc_page" rel="ccc" href="https://ccc.edu.ph/">CITY COLLEGE OF CALAMBA</a>
         
       </p>
 
@@ -25,7 +25,7 @@
         indicators
         style="text-shadow: 1px 1px 2px #333"
       >
-        <!-- Slides with image only -->
+        <!-- slideshow with image only -->
         <b-carousel-slide>
           <template #img>
             <img
