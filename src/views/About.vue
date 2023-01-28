@@ -17,7 +17,7 @@
        <br />
       <p class="sm" style="text-align: left">
           Taken from
-          <a href="https://www.facebook.com/citycollegeofcalamba">CITY COLLEGE OF CALAMBA</a>
+          <a target="ccc_page" rel="ccc" href="https://www.facebook.com/citycollegeofcalamba">CITY COLLEGE OF CALAMBA</a>
         </p>
       <br />
       <br />
@@ -31,7 +31,7 @@
       <hr class="my-4" />
       <p style="font-size: +20px">
         Our products are from the collaborated departments of City College of Calamba such as Departmental T-shirts, Facemask, Totebag, Accesories and more.
-       For more info, visit <a target="target_name" rel="relation_name" href="https://m.facebook.com/CCCOnlineBazaar"> CCC Student's Online Bazaar</a>
+       For more info, visit <a target="ccc_bazaar" rel="bazaar" href="https://m.facebook.com/CCCOnlineBazaar"> CCC Student's Online Bazaar</a>
       </p>
       <br />
       <br />
