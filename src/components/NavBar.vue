@@ -65,7 +65,7 @@
                             <b-col class="col-3 py-2">
                               <!-- <b-link :to="`/details/${item.id}`">
                               </b-link> -->
-                              <b-img :src="item.imageUrl" height="100" width="100"></b-img>
+                              <b-img :src="item.img_url" height="100" width="100"></b-img>
                             </b-col>
                             <b-col cols="3">
                               <p class="h4 mt-3" style="text-align: left">
@@ -116,8 +116,8 @@
                         </b-col>
                         <b-col align-self="center">
                           <b-button class="col-11 my-3" size="md" @click="
-  checkout();
-closeDD();
+                              checkout();
+                            closeDD();
                           " variant="dark">Checkout</b-button>
                         </b-col>
                       </b-row>

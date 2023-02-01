@@ -25,7 +25,7 @@
               <b-col class="col-2 py-2">
                 <b-link :to="'/details/' + item.id">
                   <b-img
-                    :src="item.imageUrl"
+                    :src="item.img_url"
                     :to="'/details/' + item.id"
                     height="80"
                     width="80"
