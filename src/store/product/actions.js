@@ -1,34 +1,48 @@
-import axios from "axios";
-
-export function getProducts({ commit }) {
-  let url =
-    "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
-  // get products through API;
-  axios
-    .get(url)
-    .then((response) => {
-      commit("setProducts", response.data);
+export function getProducts({ commit }, supabase) {
+  /**
+   * This gets data from the supabase table. This is equivalent to: 
+   * 
+   * SELECT * FROM "products";
+   */
+  supabase.from("products").select()
+    .then(({ data }) => {
+      /**
+       * We perform object deconstruction by extracting the `data` property from the result
+       * 
+       * For example: 
+       * 
+       * result = {
+       *  error: "",
+       *  data: "",
+       *  count: "",
+       * }
+       * 
+       * We get only the data property by doing: 
+       * const { data } = result;
+       * 
+       * which the same as: 
+       * 
+       * const data = result.data;
+       */
+      commit("setProducts", data);
     })
     .catch((error) => {
       console.log(error);
     });
 }
 
-export function productDetails({ commit }, id) {
-  const productID = parseInt(id);
-
-  let url =
-    "https://my-json-server.typicode.com/tinoyski/ccc-db/products";
-  // get products through API;
-  axios
-    .get(url)
-    .then((response) => {
-      const product = response.data.find(({ id }) => id === productID)
-      commit("setProduct", product);
-    })
-    .catch(function (error) {
+export function productDetails({ commit }, { supabase, idProduct }) {
+  /**
+   * This is equivalent to: 
+   * 
+   * SELECT * FROM "products" where id = ?;
+   */
+  supabase.from("products").select().eq("id", idProduct)
+    .then(({ data }) => {
+      commit("setProduct", data[0])
+    }).catch((error) => {
       console.log(error);
-    });
+    })
 }
 
 export function addCart({ commit, getters }, payload) {

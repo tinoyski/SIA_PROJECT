@@ -1,5 +1,5 @@
 <template>
-  <div id="dog">
+  <div id="shop">
     <b-jumbotron>
       <template #header>WELCOME TO CCC ONLINE MERCHANDISE!</template>
     </b-jumbotron>
@@ -27,7 +27,7 @@ export default {
     ...mapActions("product", ["getProducts", "addCart", "removeCart"]),
   },
   mounted() {
-    this.getProducts();
+    this.getProducts(this.$supabase);
   },
 };
 </script>

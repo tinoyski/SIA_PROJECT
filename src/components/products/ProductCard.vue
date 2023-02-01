@@ -2,7 +2,7 @@
   <div id="product-card">  <!--{{ Product details }}--> 
     <b-card
       :title="product.name"
-      :img-src="product.imageUrl"
+      :img-src="product.img_url"
       img-top
       style="max-width: 20rem"
       class="mb-5 pt-4 shadow"

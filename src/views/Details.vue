@@ -11,7 +11,7 @@
       <b-row no-gutters>
         <b-col md="6">
           <b-card-img-lazy
-            :src="product.imageUrl"
+            :src="product.img_url"
             alt="Image"
             class="rounded-3 p-auto"
           ></b-card-img-lazy>
@@ -51,7 +51,10 @@ export default {
     ...mapActions("product", ["productDetails"]),
   },
   mounted() {
-    this.productDetails(this.$route.params.idProduct);
+    this.productDetails({ 
+      supabase: this.$supabase,
+      idProduct: this.$route.params.idProduct
+    });
   },
 };
 </script>
