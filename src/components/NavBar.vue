@@ -19,7 +19,7 @@
           <!-- user icon -->
           <b-nav-item>
             <b-nav-item-dropdown size="lg" toggle-class="nav-link" right no-caret>
-              <template #button-content> <!--{{ If-Else to check user photo }}-->
+              <template #button-content> <!--{{ check user photo }}-->
                 <b-avatar v-if="user.username" class="icon-size" :text="user.username[0]" variant="primary"></b-avatar>
                 <b-avatar v-else class="icon-size" icon="person" variant="dark"></b-avatar>
               </template> <!--{{ Login or Register }}-->
