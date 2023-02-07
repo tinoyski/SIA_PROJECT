@@ -1,54 +1,33 @@
-export function getProducts({ commit }, supabase) {
-  /**
-   * This gets data from the supabase table. This is equivalent to: 
-   * 
-   * SELECT * FROM "products";
-   */
-  supabase.from("products").select()
-    .then(({ data }) => {
-      /**
-       * We perform object deconstruction by extracting the `data` property from the result
-       * 
-       * For example: 
-       * 
-       * result = {
-       *  error: "",
-       *  data: "",
-       *  count: "",
-       * }
-       * 
-       * We get only the data property by doing: 
-       * const { data } = result;
-       * 
-       * which the same as: 
-       * 
-       * const data = result.data;
-       */
-      commit("setProducts", data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtudmZuZWlxeWRybG1yY3RsY2Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUxNTY5OTAsImV4cCI6MTk5MDczMjk5MH0.pAqB0eYFCC6l41CDowAk4sKySiYbFAXZj0nxmzDb9Wo";
+
+const options = {
+  headers: {
+    "apikey": SUPABASE_KEY,
+    "Authorization": `Bearer ${SUPABASE_KEY}`
+  }
 }
 
-export function productDetails({ commit }, { supabase, idProduct }) {
-  /**
-   * This is equivalent to: 
-   * 
-   * SELECT * FROM "products" where id = ?;
-   */
-  supabase.from("products").select().eq("id", idProduct)
-    .then(({ data }) => {
-      commit("setProduct", data[0])
-    }).catch((error) => {
-      console.log(error);
-    })
+export function getProducts({ commit }) {
+  // Gets data from supabase table
+  fetch("https://knvfneiqydrlmrctlcfw.supabase.co/rest/v1/products?select=*", options).then(async (res) => {
+    commit("setProducts", await res.json());
+  }).catch((error) => {
+    console.log(error);
+  })
+}
+
+export function productDetails({ commit }, id) {
+  // Get id from database
+  fetch(`https://knvfneiqydrlmrctlcfw.supabase.co/rest/v1/products?id=eq.${id}&select=*`, options).then(async (res) => {
+    commit("setProduct", (await res.json())[0]);
+  }).catch((error) => {
+    console.log(error);
+  })
 }
 
 export function addCart({ commit, getters }, payload) {
   let cart = getters.cart;
   let data = payload.product;
-  console.log(data);
   data["quantity"] = parseInt(payload.quantity);
   cart.push(data);
   commit("setCart", cart);

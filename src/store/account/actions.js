@@ -46,7 +46,6 @@ export function register({ commit }, { supabase, form, bvToast }) {
 
 }
 
-
 export function logout({ commit }, { supabase, bvToast }) {
   supabase.auth.signOut().then(({ error }) => {
     if (error) {
@@ -61,6 +60,6 @@ export function logout({ commit }, { supabase, bvToast }) {
     const userData = {};
     commit("setUserData", userData);
   })
-
-
 }
+
+

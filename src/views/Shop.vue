@@ -27,7 +27,7 @@ export default {
     ...mapActions("product", ["getProducts", "addCart", "removeCart"]),
   },
   mounted() {
-    this.getProducts(this.$supabase);
+    this.getProducts();
   },
 };
 </script>

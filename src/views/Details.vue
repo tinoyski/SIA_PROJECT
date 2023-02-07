@@ -51,10 +51,7 @@ export default {
     ...mapActions("product", ["productDetails"]),
   },
   mounted() {
-    this.productDetails({ 
-      supabase: this.$supabase,
-      idProduct: this.$route.params.idProduct
-    });
+    this.productDetails(this.$route.params.idProduct);
   },
 };
 </script>

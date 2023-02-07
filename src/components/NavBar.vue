@@ -278,13 +278,12 @@ export default {
     doLogout() {
       this.logout({
         supabase: this.$supabase,
-        bvToast: this.bvToast
+        bvToast: this.$bvToast
       })
     }
   },
   mounted() {
     const user = this.$supabase.auth.user();
-    console.log(user);
     if (user) {
       const userData = {
         username: user.user_metadata.username,
